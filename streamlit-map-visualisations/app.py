@@ -10,20 +10,17 @@ import time
 
 # Attempt importing `sklearn` ref: https://discuss.streamlit.io/t/using-package-from-a-private-repo-in-streamlit-deploy/21353/5
 try:
-    # replace "yourpackage" with the package you want to import
     import sklearn
 
-# This block executes only on the first run when your package isn't installed
 except ModuleNotFoundError as e:
     subprocess.Popen([f'{sys.executable} -m pip install scikit-learn'], shell=True)
-    # wait for subprocess to install package before running your actual code below
     time.sleep(20)
 
 from sklearn.cluster import KMeans
 
 # Read the input dataframe
-df = pd.read_csv("../traffic-danger-points-analysis/bangalore_danger_spots.csv")
-
+# Attempt GDrive link for streamlit deploy ref: https://stackoverflow.com/questions/36096194/where-can-i-host-a-csv-so-i-can-directly-read-it-into-a-neo4j-database
+df = pd.read_csv("https://drive.google.com/uc?export=download&id=1eL-MxgpcCGYRbAqZxoIMpi8-FDSZ-83Z")
 
 # KMeans Clustering algorithm
 def get_centers_kmeans(num_clusters):
