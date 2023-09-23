@@ -9,7 +9,7 @@ def create_redis_client(host_url, host_password, port = 16271):
     r = redis.Redis(
         host = host_url,
         port = port,
-        password = password
+        password = host_password
     )
 
     return r
@@ -45,10 +45,10 @@ def find_geospatial_points_within_radius(redis_client_object, latitude,
     results = redis_client_object.geosearch(
         collection_name,
         longitude = longitude,
-        latitude = latiude,
+        latitude = latitude,
         radius = radius,
         unit = unit
     )
 
-    return result
+    return results
 
