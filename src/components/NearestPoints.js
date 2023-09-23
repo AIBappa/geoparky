@@ -13,7 +13,7 @@ async function getNearestPoints(position) {
         locations = res;
     })
 
-    return res;
+    return locations;
 }
 
 export default getNearestPoints;
