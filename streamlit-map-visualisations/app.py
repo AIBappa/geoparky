@@ -4,7 +4,21 @@
 
 import streamlit as st
 import pandas as pd
-import numpy as np
+import sys
+import subprocess
+import time
+
+# Attempt importing `sklearn` ref: https://discuss.streamlit.io/t/using-package-from-a-private-repo-in-streamlit-deploy/21353/5
+try:
+    # replace "yourpackage" with the package you want to import
+    import sklearn
+
+# This block executes only on the first run when your package isn't installed
+except ModuleNotFoundError as e:
+    subprocess.Popen([f'{sys.executable} -m pip install scikit-learn'], shell=True)
+    # wait for subprocess to install package before running your actual code below
+    time.sleep(20)
+
 from sklearn.cluster import KMeans
 
 # Read the input dataframe
