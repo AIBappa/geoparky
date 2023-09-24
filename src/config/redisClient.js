@@ -1,13 +1,14 @@
-const redis = require("redis");
+import { createClient } from 'redis';
+import { initialize } from 'georedis';
 
-const redisUrl = process.env.redisURL;
-const redisPassword = process.env.redisPassword;
+const redisUrl = process.env.REACT_APP_redisURL;
+const redisPassword = process.env.REACT_APP_redisPassword;
 
-const client = redis.createClient({
+const client = createClient({
     url: redisUrl,
     password: redisPassword
 });
 
-var redisGeoClient = require('georedis').initialize(client)
+var redisGeoClient = initialize(client)
 
 export default redisGeoClient;

@@ -11,6 +11,7 @@ async function getNearestPoints(position) {
     redisGeoClient.nearby({latitude: latitude, longitude: longitude}, 2000, function(err, res){
         if(err) console.error(err);
         locations = res;
+        console.log(locations);
     })
 
     return locations;

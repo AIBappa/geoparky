@@ -29,7 +29,7 @@ const NavBar = (props) => {
 					<Nav className="me-auto">
 						<Nav.Link href="/">Map</Nav.Link>
 						<Nav.Link href="/findcar">Find Car</Nav.Link>
-                        <Nav.Link href="/dangerzones">DangerZones</Nav.Link>
+                        <Nav.Link href="https://geoparky.streamlit.app/">DangerZones</Nav.Link>
 					</Nav>
 					<Nav>
 						<Nav.Link href="/profile">Profile</Nav.Link>
