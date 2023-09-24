@@ -5,8 +5,8 @@ import os
 
 # Create the Redis client
 r = create_redis_client(
-    host_url = os.environ["host_url"],
-    host_password = os.environ["host_password"]
+    host_url = os.environ["REDIS_URL"],
+    host_password = os.environ["REDIS_PASSWORD"]
 )
 
 # Get number of nearest neighbours functionality
